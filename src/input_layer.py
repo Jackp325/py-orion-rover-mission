@@ -11,3 +11,6 @@ def parse_position(text):
         "y": int(y), 
         "direction": direction
     }
+
+def parse_instructions(text):
+    return list(text)

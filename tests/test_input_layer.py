@@ -1,4 +1,4 @@
-from src.input_layer import parse_plateau, parse_position
+from src.input_layer import parse_plateau, parse_position, parse_instructions
 
 def test_parse_plateau_valid_inputs_return_correct_dict():
     plateau_1 = "5 5"
@@ -18,3 +18,13 @@ def test_parse_position_valid_inputs_return_correct_dict():
     assert parse_position(rover_2) == {"x": 5, "y": 7, "direction": "S"}
     assert parse_position(rover_3) == {"x": 3, "y": 1, "direction": "E"}
     assert parse_position(rover_4) == {"x": 0, "y": 0, "direction": "W"}
+
+
+def test_parse_intructions_returns_a_list():
+    assert parse_instructions("") == []
+
+def test_parse_intructions_single_instruction_returns_a_list_of_one():
+    assert parse_instructions("L") == ["L"]
+
+def test_parse_intructions_multiple_instruction_returns_in_correct_order():
+    assert parse_instructions("LMLMLMLMM") == ["L", "M", "L", "M", "L", "M", "L", "M", "M"]
