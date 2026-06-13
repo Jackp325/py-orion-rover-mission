@@ -44,3 +44,38 @@ Current coverage includes:
 * boundary conditions
 * invalid input handling
 * validation rules
+
+
+## Logic Layer
+
+### Goal
+
+Take a parsed mission and produce the final positions of all of the rovers.
+
+### Implementation Notes
+### Rotation:
+- *Input:* `rotate({"x": 0, "y": 0, "direction": "N"}, "L")`
+
+- *Output:* `{"x": 0, "y": 0, "direction": "W"}`
+- Needs to take a direction {"N", "E", "S", "W"} and an instruction {"L", "R"}.
+- Direction can be considered the current index position in an ordered list.
+- The instruction will shift the index position left or right.
+- Ordered list needs to behave in a cyclic manner. 
+
+### Movement:
+- *Input:* `move({"x": 0, "y": 0, "direction": "N"}, {"max_x": 5, "max_y": 5})`
+
+- *Output:* `{"x": 0, "y": 1, "direction": "N"}`
+- Needs to take current position and plateau bounds.
+- Checks if a move in the direction will take it out of bounds.
+- Returns a new position if the move is legal, or the same position if not.
+
+### Orchestration:
+- Takes a list of rover dictionaries
+- For each rover loop through valid instructions, either rotate or move.
+- Return a list of rover dictionaries with updated final positions
+
+### Assumptions
+- Directions are always one of N, E, S, W
+- Instructions are always L, R, or M
+- Input has already been parsed and validated
