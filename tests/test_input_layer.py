@@ -30,7 +30,7 @@ def test_parse_intructions_multiple_instruction_returns_in_correct_order():
     assert parse_instructions("LMLMLMLMM") == ["L", "M", "L", "M", "L", "M", "L", "M", "M"]
 
 
-def parse_mission_with_plateau_and_no_rovers_returns_correct_structure():
+def test_parse_mission_with_plateau_and_no_rovers_returns_correct_structure():
     mission_input = "5 5"
     expected_result = {
         "plateau": {
@@ -42,7 +42,7 @@ def parse_mission_with_plateau_and_no_rovers_returns_correct_structure():
     result = parse_mission(mission_input)
     assert result == expected_result
 
-def parse_mission_single_rover_returns_correct_structure():
+def test_parse_mission_single_rover_returns_correct_structure():
     mission_input = """10 10
     1 2 N
     LMRMRM"""
@@ -65,7 +65,7 @@ def parse_mission_single_rover_returns_correct_structure():
     result = parse_mission(mission_input)
     assert result == expected_result
 
-def parse_mission_two_rovers_returns_correct_structure():
+def test_parse_mission_two_rovers_returns_correct_structure():
     mission_input = """10 10
     1 2 N
     LMRMRM
@@ -98,7 +98,7 @@ def parse_mission_two_rovers_returns_correct_structure():
     result = parse_mission(mission_input)
     assert result == expected_result
 
-def parse_mission_brief_mission_returns_exact_expected_output():
+def test_parse_mission_brief_mission_returns_exact_expected_output():
     mission_input = """5 5
     1 2 N
     LMLMLMLMM
