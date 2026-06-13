@@ -13,7 +13,22 @@ def parse_position(text):
     }
 
 def parse_instructions(text):
-    return list(text)
+    return list(text.strip())
 
 def parse_mission(text):
-    pass
+    lines = text.strip().splitlines()
+
+    plateau_line = lines[0]
+    rover_list = []
+    for i in range(1, len(lines), 2):
+        position_line = lines[i]
+        instructions_line = lines[i + 1]
+        rover_list.append({
+                "position": parse_position(position_line),
+                "instructions": parse_instructions(instructions_line)
+        })
+
+    return {
+        "plateau": parse_plateau(plateau_line),
+        "rovers": rover_list
+    }
