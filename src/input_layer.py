@@ -1,5 +1,11 @@
 
 
+def load_mission_from_file(path):
+    with open(path, "r") as file:
+        mission_text = file.read()
+
+    return parse_mission(mission_text)
+
 def parse_plateau(text):
     max_x, max_y = map(int, text.split())
     return {"max_x": max_x, "max_y": max_y}
