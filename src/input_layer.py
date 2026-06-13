@@ -14,3 +14,6 @@ def parse_position(text):
 
 def parse_instructions(text):
     return list(text)
+
+def parse_mission(text):
+    pass
