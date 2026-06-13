@@ -43,13 +43,13 @@ def test_parse_mission_with_plateau_and_no_rovers_returns_correct_structure():
     assert result == expected_result
 
 def test_parse_mission_single_rover_returns_correct_structure():
-    mission_input = """10 10
+    mission_input = """15 15
     1 2 N
     LMRMRM"""
     expected_result = {
         "plateau": {
-            "max_x": 5,
-            "max_y": 5
+            "max_x": 15,
+            "max_y": 15
         },
         "rovers": [
             {
@@ -73,8 +73,8 @@ def test_parse_mission_two_rovers_returns_correct_structure():
     RMLMLM"""
     expected_result = {
         "plateau": {
-            "max_x": 5,
-            "max_y": 5
+            "max_x": 10,
+            "max_y": 10
         },
         "rovers": [
             {
