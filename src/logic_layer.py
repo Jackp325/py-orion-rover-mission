@@ -13,3 +13,18 @@ def rotate(position, instruction):
         "y": position["y"],
         "direction": DIRECTIONS[new_idx]
     }
+
+MOVE_MAP = {
+    "N": (0, 1),
+    "E": (1, 0),
+    "S": (0, -1),
+    "W": (-1, 0)
+}
+
+def move(position, plateau):
+    dx, dy = MOVE_MAP[position["direction"]]
+    return {
+        "x": position["x"] + dx,
+        "y": position["y"] + dy,
+        "direction": position["direction"]
+    }
