@@ -23,8 +23,17 @@ MOVE_MAP = {
 
 def move(position, plateau):
     dx, dy = MOVE_MAP[position["direction"]]
-    return {
-        "x": position["x"] + dx,
-        "y": position["y"] + dy,
-        "direction": position["direction"]
-    }
+    x = position["x"] + dx
+    y = position["y"] + dy
+    if 0 <= x <= plateau["max_x"] and 0 <= y <= plateau["max_y"]:
+        return {
+            "x": x,
+            "y": y,
+            "direction": position["direction"]
+        }
+    else:
+        return {
+            "x": position["x"],
+            "y": position["y"],
+            "direction": position["direction"]
+        }
