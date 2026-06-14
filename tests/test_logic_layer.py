@@ -1,4 +1,4 @@
-from src.logic_layer import rotate
+from src.logic_layer import rotate, move
 
 def test_rotate_left_from_north_returns_west():
     position = {"x": 0, "y": 0, "direction": "N"}
@@ -39,3 +39,22 @@ def test_rotate_left_four_times_returns_to_starting_position():
         position = rotate(position, instruction)
 
     assert position["direction"] == "N"
+
+
+def test_move_north_increases_y_by_one():
+    position = {"x": 0, "y": 0, "direction": "N"}
+    plateau = {"max_x": 5, "max_y": 5}
+    expected_result = {"x": 0, "y": 1, "direction": "N"}
+    
+    result = move(position, plateau)
+
+    assert result == expected_result
+
+def test_move_east_increases_x_by_one():
+    position = {"x": 0, "y": 0, "direction": "E"}
+    plateau = {"max_x": 5, "max_y": 5}
+    expected_result = {"x": 1, "y": 0, "direction": "E"}
+    
+    result = move(position, plateau)
+
+    assert result == expected_result
