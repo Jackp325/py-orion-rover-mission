@@ -1,4 +1,4 @@
-from test_logic_layer import rotate
+from src.logic_layer import rotate
 
 def test_rotate_left_from_north_returns_west():
     position = {"x": 0, "y": 0, "direction": "N"}
