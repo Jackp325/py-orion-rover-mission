@@ -58,3 +58,43 @@ def test_move_east_increases_x_by_one():
     result = move(position, plateau)
 
     assert result == expected_result
+
+def test_move_south_out_of_bounds_does_not_move():
+    position = {"x": 0, "y": 0, "direction": "S"}
+    plateau = {"max_x": 5, "max_y": 5}
+
+    result = move(position, plateau)
+
+    assert result["x"] == 0
+    assert result["y"] == 0
+    assert result["direction"] == "S"
+
+def test_move_west_out_of_bounds_does_not_move():
+    position = {"x": 0, "y": 0, "direction": "W"}
+    plateau = {"max_x": 5, "max_y": 5}
+
+    result = move(position, plateau)
+
+    assert result["x"] == 0
+    assert result["y"] == 0
+    assert result["direction"] == "W"
+
+def test_move_north_out_of_bounds_does_not_move():
+    position = {"x": 0, "y": 5, "direction": "N"}
+    plateau = {"max_x": 5, "max_y": 5}
+
+    result = move(position, plateau)
+
+    assert result["x"] == 0
+    assert result["y"] == 5
+    assert result["direction"] == "N"
+
+def test_move_east_out_of_bounds_does_not_move():
+    position = {"x": 5, "y": 0, "direction": "E"}
+    plateau = {"max_x": 5, "max_y": 5}
+
+    result = move(position, plateau)
+
+    assert result["x"] == 5
+    assert result["y"] == 0
+    assert result["direction"] == "E"
