@@ -23,7 +23,7 @@ MOVE_MAP = {
 
 def move(position, plateau):
     dx, dy = MOVE_MAP[position["direction"]]
-    
+
     new_x = position["x"] + dx
     new_y = position["y"] + dy
 
@@ -39,3 +39,12 @@ def move(position, plateau):
         "y": y,
         "direction": position["direction"]
     }
+
+def execute_instructions(position, instructions, plateau):
+    current_position = position
+    for instruction in instructions:
+        if instruction == "M":
+            current_position = move(current_position, plateau)
+        else:
+            current_position = rotate(current_position, instruction)
+    return current_position
