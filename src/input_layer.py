@@ -1,6 +1,6 @@
 
 
-def load_mission_from_file(path):
+def read_mission(path):
     with open(path, "r") as file:
         mission_text = file.read()
 

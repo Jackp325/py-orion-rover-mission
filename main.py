@@ -1,13 +1,7 @@
-from src.input_layer import parse_mission
+from src.input_layer import read_mission
 from src.logic_layer import execute_instructions
 
-INPUT = """5 5
-1 2 N
-LMLMLMLMM
-3 3 E
-MMRMMRMRRM"""
-
-mission = parse_mission(INPUT)
+mission = read_mission('data/sample.mission')
 
 plateau = mission["plateau"]
 rovers = mission["rovers"]
