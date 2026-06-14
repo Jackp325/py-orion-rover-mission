@@ -50,7 +50,7 @@ Current coverage includes:
 
 ### Goal
 
-Take a parsed mission and produce the final positions of all of the rovers.
+Take a parsed mission and produce the final positions of each rover.
 
 ### Implementation Notes
 ### Rotation:
@@ -79,3 +79,10 @@ Take a parsed mission and produce the final positions of all of the rovers.
 - Directions are always one of N, E, S, W
 - Instructions are always L, R, or M
 - Input has already been parsed and validated
+
+### Execution
+- Cycles through a full list 
+- Checks each instruction type
+- Feeds it to the appropriate function (move or rotate)
+- Returns final updated position
+- Does not mutate the inputs
