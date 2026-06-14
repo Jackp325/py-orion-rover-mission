@@ -1,23 +1,11 @@
-from src.input_layer import read_mission, parse_mission
-from src.logic_layer import execute_instructions
+from src.input_layer import load_mission, parse_mission
+from src.logic_layer import run_mission
 
 def test_full_pipeline_with_mission_brief():
-    mission = read_mission('data/sample.mission')
+    mission = load_mission('data/sample.mission')
     expected_output = """1 3 N\n5 1 E"""
 
-    final_positions = [
-        execute_instructions(
-            rover["position"], 
-            rover["instructions"], 
-            mission["plateau"]
-        ) 
-        for rover in mission["rovers"]
-    ]
-
-    mission_output = "\n".join(
-        f"{rover['x']} {rover['y']} {rover['direction']}" 
-        for rover in final_positions
-    )
+    mission_output = run_mission(mission)
 
     assert mission_output == expected_output
     
@@ -26,19 +14,7 @@ def test_full_pipeline_with_new_data():
     mission = parse_mission(data)
     expected_output = """2 2 N\n9 10 W\n6 3 S"""
 
-    final_positions = [
-        execute_instructions(
-            rover["position"], 
-            rover["instructions"], 
-            mission["plateau"]
-        ) 
-        for rover in mission["rovers"]
-    ]
-
-    mission_output = "\n".join(
-        f"{rover['x']} {rover['y']} {rover['direction']}" 
-        for rover in final_positions
-    )
+    mission_output = run_mission(mission)
 
     assert mission_output == expected_output
     

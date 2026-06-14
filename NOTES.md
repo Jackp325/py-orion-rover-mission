@@ -52,7 +52,13 @@ Current coverage includes:
 
 Take a parsed mission and produce the final positions of each rover.
 
-### Implementation Notes
+### Design
+
+* `rotate`
+* `move`
+* `execute_instructions`
+* `run_mission`
+
 ### Rotation:
 - *Input:* `rotate({"x": 0, "y": 0, "direction": "N"}, "L")`
 

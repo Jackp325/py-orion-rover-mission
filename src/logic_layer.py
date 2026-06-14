@@ -48,3 +48,18 @@ def execute_instructions(position, instructions, plateau):
         else:
             current_position = rotate(current_position, instruction)
     return current_position
+
+def run_mission(mission):
+    final_positions = [
+        execute_instructions(
+            rover["position"], 
+            rover["instructions"], 
+            mission["plateau"]
+        ) 
+        for rover in mission["rovers"]
+    ]
+    
+    return "\n".join(
+        f"{rover['x']} {rover['y']} {rover['direction']}" 
+        for rover in final_positions
+    )
